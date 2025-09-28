@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vahan Bazar - Two-Wheeler Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="animated-bg min-h-screen">
+    <!-- Notification Button - More Visible -->
+        <i class="fas fa-bell"></i>
+    </button>
+    
+    <!-- Splash Screen -->
+    <div id="splash">
+        <div class="logo-container">
+            <img src="https://static.vecteezy.com/system/resources/previews/036/466/119/non_2x/bv-red-logo-design-logo-design-for-business-free-vector.jpg" alt="Vahan Bazar Logo">
+        </div>
+        <div class="welcome-text">Welcome to Vahan Bazar</div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-container">
+        <div class="logo-container-loading">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            
+            <div class="logo-loading">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#ffffff" stroke="#ffffff" stroke-width="1">
+                        <circle cx="25" cy="65" r="15" fill="none" stroke-width="3"/>
+                        <circle cx="25" cy="65" r="8" fill="none" stroke-width="2"/>
+                        
+                        <circle cx="75" cy="65" r="15" fill="none" stroke-width="3"/>
+                        <circle cx="75" cy="65" r="8" fill="none" stroke-width="2"/>
+                        
+                        <path d="M25 65 L35 50 L50 45 L65 50 L75 65" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        
+                        <path d="M35 50 Q40 40 50 45" fill="none" stroke-width="3" stroke-linecap="round"/>
+                        
+                        <path d="M65 50 L70 35 M70 35 L65 35 M70 35 L75 35" stroke-width="3" stroke-linecap="round"/>
+                        
+                        <rect x="45" y="50" width="10" height="8" rx="2" fill="none" stroke-width="2"/>
+                        
+                        <path d="M45 58 L40 62" stroke-width="2" stroke-linecap="round"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="loading-text">
+            Loading
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+    
+    <!-- Login/Signup Section -->
+    <div id="authSection" class="min-h-screen flex items-center justify-center p-4 login-container">
+        <div class="login-card w-full max-w-md">
+            <!-- Login Form -->
+            <div id="loginForm">
+                <div class="login-header">
+                    <div class="login-icon">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <h1 class="login-title">Vahan Bazar</h1>
+                    <p class="login-subtitle">The Ultimate Two-Wheeler Marketplace</p>
+                </div>
+                
+                <div class="login-form">
+                    <div class="form-group">
+                        <label class="form-label">Email or Phone</label>
+                        <input type="text" id="loginEmail" class="form-input" placeholder="Enter your email or phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password">
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="rememberMe" class="custom-checkbox">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    
+                    <div class="text-right mb-4">
+                        <a href="#" class="form-link">Forgot password?</a>
+                    </div>
+                    
+                    <button onclick="login()" class="login-btn">Login</button>
+                    
+                    <div class="login-divider">
+                        <span>Or continue with</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button class="social-btn">
+                            <i class="fab fa-google"></i>
+                        </button>
+                        <button class="social-btn">
+                            <i class="fab fa-facebook"></i>
+                        </button>
+                        <button class="social-btn">
+                            <i class="fab fa-apple"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="signup-link">
+                        Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Signup Form -->
+            <div id="signupForm" class="hidden">
+                <div class="login-header">
+                    <div class="login-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h1 class="login-title">Create Account</h1>
+                    <p class="login-subtitle">Join Vahan Bazar today</p>
+                </div>
+                
+                <div class="login-form">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="signupName" class="form-input" placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="signupEmail" class="form-input" placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" id="signupPhone" class="form-input" placeholder="Enter your phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Referral Code (Optional)</label>
+                        <input type="text" id="signupReferralCode" class="form-input" placeholder="Enter referral code">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="signupPassword" class="form-input" placeholder="Create a password">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" id="signupConfirmPassword" class="form-input" placeholder="Confirm your password">
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="agreeTerms" class="custom-checkbox">
+                        <label for="agreeTerms">I agree to the Terms and Conditions</label>
+                    </div>
+                    
+                    <button onclick="signup()" class="login-btn">Sign Up</button>
+                    
+                    <div class="signup-link">
+                        Already have an account? <a href="#" onclick="showLogin()">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Application -->
+    <div id="mainApp">
+        <!-- Header -->
+        <header class="bg-black shadow-md sticky top-0 z-10">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-motorcycle text-white text-xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-red-500">Vahan Bazar</h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-6">
+                    <button onclick="showSection('vehicles')" class="nav-btn text-gray-300 hover:text-red-400 font-medium">Vehicles</button>
+                    <button onclick="showSection('services')" class="nav-btn text-gray-300 hover:text-red-400 font-medium">Services</button>
+                    <button onclick="showSection('second-hand')" class="nav-btn text-gray-300 hover:text-red-400 font-medium">Second Hand</button>
+                    <button onclick="showSection('parts')" class="nav-btn text-gray-300 hover:text-red-400 font-medium">Parts</button>
+                    <button onclick="showSection('showrooms')" class="nav-btn text-gray-300 hover:text-red-400 font-medium">Showrooms</button>
+                    <button onclick="showSection('upcoming')" class="nav-btn text-gray-300 hover:text-red-400 font-medium">Upcoming</button>
+                    <button onclick="showSection('offers')" class="nav-btn text-gray-300 hover:text-red-400 font-medium">Offers</button>
+                    <button onclick="showSection('orders')" class="nav-btn text-gray-300 hover:text-red-400 font-medium">My Orders</button>
+                    <button onclick="showSection('account')" class="nav-btn text-gray-300 hover:text-red-400 font-medium">My Account</button>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button onclick="showCart()" class="text-gray-300 hover:text-red-400">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                        </button>
+                        <span id="cartCount" class="cart-badge">0</span>
+                    </div>
+                    
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-red-900 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-red-400"></i>
+                        </div>
+                        <span id="userName" class="text-gray-300 font-medium">User</span>
+                    </div>
+                    
+                    <button onclick="logout()" class="bg-gray-900 text-gray-300 px-4 py-2 rounded-md hover:bg-gray-800 transition">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <main class="container mx-auto px-4 py-8">
+            <!-- Hero Section with Unique Quote - Only shown in vehicles section -->
+            <section id="heroSection" class="hero-section">
+                <div class="max-w-3xl">
+                    <p class="hero-quote">
+                        Where every vehicle finds its perfect destination.
+                    </p>
+                    <p class="hero-author">- Vahan Bazar</p>
+                </div>
+                
+                <div class="absolute right-8 bottom-8 hidden md:block">
+                    <div class="float">
+                        <i class="fas fa-motorcycle text-6xl text-white opacity-20"></i>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Instruction Page - Only shown in vehicles section -->
+            <section id="instruction-section" class="instruction-page">
+                <h2 class="instruction-title">
+                    <i class="fas fa-info-circle"></i> How to Use Vahan Bazar
+                </h2>
+                
+                <div class="instruction-steps">
+                    <div class="instruction-step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Create Account</h3>
+                        <p class="step-description">Sign up for a free account to access all features of Vahan Bazar.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Browse Vehicles</h3>
+                        <p class="step-description">Explore our wide range of new and used bikes, scooters, and electric vehicles.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Compare & Select</h3>
+                        <p class="step-description">Use our comparison tool to select the best vehicle for your needs.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Book Test Ride</h3>
+                        <p class="step-description">Schedule a test ride to experience your chosen vehicle before buying.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <div class="step-number">5</div>
+                        <h3 class="step-title">Make Payment</h3>
+                        <p class="step-description">Complete your purchase using our secure payment options including EMI.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <div class="step-number">6</div>
+                        <h3 class="step-title">Enjoy Your Ride</h3>
+                        <p class="step-description">Get your vehicle delivered and enjoy the freedom of the open road.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Vehicles Section -->
+            <section id="vehicles-section" class="section active">
+                <!-- Search and Filters -->
+                <div class="mb-12 bg-gray-900 rounded-2xl shadow-md p-6">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-100">Find Your Perfect Ride</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Search</label>
+                            <input type="text" id="searchInput" placeholder="Search by name or brand" 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Brand</label>
+                            <select id="brandFilter" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">All Brands</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Vehicle Type</label>
+                            <select id="typeFilter" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">All Types</option>
+                                <option value="bike">Bikes</option>
+                                <option value="scooter">Scooters</option>
+                                <option value="ev">Electric Vehicles</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Fuel Type</label>
+                            <select id="fuelFilter" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">All Fuel Types</option>
+                                <option value="petrol">Petrol</option>
+                                <option value="diesel">Diesel</option>
+                                <option value="electric">Electric</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">
+                                Price Range: ₹<span id="minPriceValue">0</span> - ₹<span id="maxPriceValue">500000</span>
+                            </label>
+                            <div class="flex items-center space-x-4">
+                                <input type="range" id="minPrice" min="0" max="500000" step="10000" value="0" 
+                                    class="w-full calculator-input">
+                                <input type="range" id="maxPrice" min="0" max="500000" step="10000" value="500000" 
+                                    class="w-full calculator-input">
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-end">
+                            <button onclick="resetFilters()" class="btn btn-outline">Reset Filters</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vehicle Listings -->
+                <div class="mb-12">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-gray-100">Available Vehicles</h2>
+                        <div class="flex space-x-2">
+                            <button onclick="setActiveTab('bikes')" id="bikesTab" class="px-4 py-2 rounded-lg tab-active">
+                                Bikes
+                            </button>
+                            <button onclick="setActiveTab('scooters')" id="scootersTab" class="px-4 py-2 rounded-lg">
+                                Scooters
+                            </button>
+                            <button onclick="setActiveTab('evs')" id="evsTab" class="px-4 py-2 rounded-lg">
+                                EVs
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="vehicleGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Vehicle cards will be inserted here by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Vehicle Comparison -->
+                <div id="comparisonSection" class="mb-12 bg-gray-900 rounded-2xl shadow-md p-6 hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-gray-100">Compare Vehicles</h2>
+                        <button onclick="clearComparison()" class="btn btn-danger">Clear All</button>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-700">
+                            <thead>
+                                <tr>
+                                    <th class="px-4 py-3 bg-gray-800 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                                        Feature
+                                    </th>
+                                    <!-- Comparison columns will be inserted here by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="comparisonTableBody" class="bg-gray-800 divide-y divide-gray-700">
+                                <!-- Comparison rows will be inserted here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- EMI Calculator -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-100">EMI Calculator</h2>
+                    
+                    <div class="bg-gray-900 rounded-2xl shadow-md p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-1">
+                                        Loan Amount: ₹<span id="loanAmountValue">100000</span>
+                                    </label>
+                                    <input type="range" id="loanAmount" min="10000" max="500000" step="10000" value="100000" 
+                                        class="w-full calculator-input">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-1">
+                                        Interest Rate: <span id="interestRateValue">9.5</span>%
+                                    </label>
+                                    <input type="range" id="interestRate" min="5" max="20" step="0.5" value="9.5" 
+                                        class="w-full calculator-input">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-1">
+                                        Loan Tenure: <span id="loanTenureValue">24</span> months
+                                    </label>
+                                    <input type="range" id="loanTenure" min="12" max="60" step="6" value="24" 
+                                        class="w-full calculator-input">
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col justify-center">
+                                <div class="bg-red-900 p-6 rounded-lg mb-4">
+                                    <p class="text-lg font-semibold text-red-200 mb-2">Monthly EMI</p>
+                                    <p class="text-3xl font-bold text-red-200">₹<span id="emiResult">0</span></p>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-gray-800 p-4 rounded-lg">
+                                        <p class="text-sm text-gray-400">Principal Amount</p>
+                                        <p class="font-semibold text-gray-200">₹<span id="principalAmount">100000</span></p>
+                                    </div>
+                                    <div class="bg-gray-800 p-4 rounded-lg">
+                                        <p class="text-sm text-gray-400">Total Interest</p>
+                                        <p class="font-semibold text-gray-200">₹<span id="totalInterest">0</span></p>
+                                    </div>
+                                    <div class="bg-gray-800 p-4 rounded-lg">
+                                        <p class="text-sm text-gray-400">Total Amount</p>
+                                        <p class="font-semibold text-gray-200">₹<span id="totalAmount">0</span></p>
+                                    </div>
+                                    <div class="bg-gray-800 p-4 rounded-lg">
+                                        <p class="text-sm text-gray-400">Payment Options</p>
+                                        <p class="font-semibold text-gray-200">Credit/Debit Card</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Services Section -->
+            <section id="services-section" class="section">
+                <h2 class="text-2xl font-bold mb-6 text-gray-100">Our Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- Fuel Delivery Service -->
+                    <div class="bg-gray-900 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="text-center mb-4">
+                            <div class="w-16 h-16 bg-red-900 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-gas-pump text-red-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-100">Fuel Delivery</h3>
+                        </div>
+                        <p class="text-gray-400 mb-4">Get petrol or diesel delivered to your location by our delivery boys. Never run out of fuel again!</p>
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-gray-300">Petrol</span>
+                                <span class="font-semibold">₹100/L</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-gray-300">Diesel</span>
+                                <span class="font-semibold">₹90/L</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-300">Delivery Charge</span>
+                                <span class="font-semibold">₹50</span>
+                            </div>
+                        </div>
+                        <button onclick="showFuelDeliveryForm()" class="btn btn-primary btn-block">Order Fuel</button>
+                    </div>
+                    
+                    <!-- Mechanic Service -->
+                    <div class="bg-gray-900 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="text-center mb-4">
+                            <div class="w-16 h-16 bg-red-900 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-tools text-red-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-100">Mechanic Service</h3>
+                        </div>
+                        <p class="text-gray-400 mb-4">Our mechanics will come to your location for puncture repair and other services. Quick and reliable!</p>
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-gray-300">Puncture Repair</span>
+                                <span class="font-semibold">₹100</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-gray-300">General Service</span>
+                                <span class="font-semibold">₹500</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-300">Service Charge</span>
+                                <span class="font-semibold">₹100</span>
+                            </div>
+                        </div>
+                        <button onclick="showMechanicServiceForm()" class="btn btn-success btn-block">Book Mechanic</button>
+                    </div>
+                    
+                    <!-- Parts Delivery -->
+                    <div class="bg-gray-900 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="text-center mb-4">
+                            <div class="w-16 h-16 bg-red-900 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-cogs text-red-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-100">Parts Delivery</h3>
+                        </div>
+                        <p class="text-gray-400 mb-4">Order genuine bike parts and get them delivered to your doorstep. All brands available!</p>
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-gray-300">Spare Parts</span>
+                                <span class="font-semibold">From ₹100</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-gray-300">Accessories</span>
+                                <span class="font-semibold">From ₹200</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-300">Delivery Charge</span>
+                                <span class="font-semibold">₹50</span>
+                            </div>
+                        </div>
+                        <button onclick="showSection('parts')" class="btn btn-purple btn-block">Browse Parts</button>
+                    </div>
+                    
+                    <!-- PPF Service -->
+                    <div class="ppf-service-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS_DWJV8eAcdjh3L1M6_7BbpsgMjHQtRw30g&s" alt="PPF Service" class="ppf-service-image">
+                        <div class="ppf-service-content">
+                            <h3 class="ppf-service-title">PPF </h3>
+                            <p class="ppf-service-description">Invest in Paint Protection Flim to protect from dirty and shows cleaning .Secure form scratches in low cost.</p>
+                            <div class="ppf-service-details">
+                                <di class="ppf-service-detail">
+                                    <div class="ppf-service-detail-label">Cost</div>
+                                    <div class="ppf-service-detail-value">₹15000</div>
+                            <button onclick="showPPFForm()" class="ppf-service-btn">Invest Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Second Hand Section -->
+            <section id="second-hand-section" class="section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-100">Second Hand Bikes</h2>
+                    <button onclick="showSecondHandSellForm()" class="btn btn-success">Sell Your Used Bike</button>
+                </div>
+                
+                <div id="secondHandGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Second hand bike cards will be inserted here by JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Parts Section -->
+            <section id="parts-section" class="section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-100">Bike Parts & Accessories</h2>
+                    <button onclick="showPartsSellForm()" class="btn btn-purple">Sell Your Parts</button>
+                </div>
+                
+                <div id="partsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Parts cards will be inserted here by JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Showrooms Section -->
+            <section id="showrooms-section" class="section">
+                <h2 class="text-2xl font-bold mb-6 text-gray-100">Our Showrooms</h2>
+                
+                <div id="showroomGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Showroom cards will be inserted here by JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Upcoming Launches Section -->
+            <section id="upcoming-section" class="section">
+                <h2 class="text-2xl font-bold mb-6 text-gray-100">Upcoming Launches</h2>
+                
+                <div id="upcomingGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Upcoming launch cards will be inserted here by JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Offers Section -->
+            <section id="offers-section" class="section">
+                <h2 class="text-2xl font-bold mb-6 text-gray-100">Special Offers & Discounts</h2>
+                
+                <div class="offers-section">
+                    <h3 class="offers-title">
+                        <i class="fas fa-tags"></i> Current Offers
+                    </h3>
+                    
+                    <div class="offers-grid">
+                        <div class="offer-card">
+                            <h4 class="offer-title">Festival Special Discount</h4>
+                            <p class="offer-description">Get up to 15% discount on all new bikes during this festive season.</p>
+                            <div class="offer-code">FESTIVE15</div>
+                            <p class="offer-validity">Valid until: 31st Dec 2023</p>
+                            <button class="offer-btn" onclick="applyOffer('FESTIVE15')">Apply Offer</button>
+                        </div>
+                        
+                        <div class="offer-card">
+                            <h4 class="offer-title">Student Discount</h4>
+                            <p class="offer-description">Special discount for students on all bikes and scooters. Valid student ID required.</p>
+                            <div class="offer-code">STUDENT10</div>
+                            <p class="offer-validity">Valid until: 31st Dec 2023</p>
+                            <button class="offer-btn" onclick="applyOffer('STUDENT10')">Apply Offer</button>
+                        </div>
+                        
+                        <div class="offer-card">
+                            <h4 class="offer-title">Corporate Discount</h4>
+                            <p class="offer-description">Exclusive discount for corporate employees. Contact your HR for details.</p>
+                            <div class="offer-code">CORP20</div>
+                            <p class="offer-validity">Valid until: 31st Dec 2023</p>
+                            <button class="offer-btn" onclick="applyOffer('CORP20')">Apply Offer</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-offers-section">
+                    <h3 class="card-offers-title">
+                        <i class="fas fa-credit-card"></i> Card Offers
+                    </h3>
+                    
+                    <div class="card-offers-grid">
+                        <div class="card-offer-card">
+                            <h4 class="card-offer-title">HDFC Bank Offer</h4>
+                            <p class="card-offer-description">Get 5% instant discount on HDFC Bank Credit and Debit Cards.</p>
+                            <p class="card-offer-validity">Valid until: 31st Dec 2023</p>
+                            <button class="card-offer-btn" onclick="applyCardOffer('HDFC5')">Apply Offer</button>
+                        </div>
+                        
+                        <div class="card-offer-card">
+                            <h4 class="card-offer-title">ICICI Bank Offer</h4>
+                            <p class="card-offer-description">Get 10% cashback on ICICI Bank Credit Cards. Minimum purchase ₹5000.</p>
+                            <p class="card-offer-validity">Valid until: 31st Dec 2023</p>
+                            <button class="card-offer-btn" onclick="applyCardOffer('ICICI10')">Apply Offer</button>
+                        </div>
+                        
+                        <div class="card-offer-card">
+                            <h4 class="card-offer-title">SBI Bank Offer</h4>
+                            <p class="card-offer-description">No-cost EMI on SBI Credit Cards. Available on select models.</p>
+                            <p class="card-offer-validity">Valid until: 31st Dec 2023</p>
+                            <button class="card-offer-btn" onclick="applyCardOffer('SBIEMI')">Apply Offer</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="referral-section">
+                    <h3 class="referral-title">
+                        <i class="fas fa-user-friends"></i> Refer & Earn
+                    </h3>
+                    
+                    <div class="referral-content">
+                        <div class="referral-code" id="referralCode">VB2023</div>
+                        <p class="referral-description">
+                            Refer a friend to Vahan Bazar and earn ₹500 coupon code. Your friend will also get a special discount on their first purchase.
+                        </p>
+                        <button class="referral-btn" onclick="copyReferralCode()">
+                            <i class="fas fa-copy"></i> Copy Referral Code
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="coupon-section">
+                    <h3 class="coupon-title">
+                        <i class="fas fa-ticket-alt"></i> Your Coupons
+                    </h3>
+                    
+                    <div class="coupon-grid" id="couponGrid">
+                        <!-- Coupon cards will be inserted here by JavaScript -->
+                    </div>
+                </div>
+            </section>
+            
+            <!-- My Orders Section -->
+            <section id="orders-section" class="section">
+                <h2 class="text-2xl font-bold mb-6 text-gray-100">My Orders</h2>
+                
+                <div id="ordersList" class="space-y-4">
+                    <!-- Order cards will be inserted here by JavaScript -->
+                </div>
+            </section>
+            
+            <!-- My Account Section -->
+            <section id="account-section" class="section">
+                <h2 class="text-2xl font-bold mb-6 text-gray-100">My Account</h2>
+                
+                <div class="account-card">
+                    <div class="account-header">
+                        <div class="account-avatar">U</div>
+                        <div class="account-info">
+                            <h2 id="accountName">User Name</h2>
+                            <p id="accountEmail">user@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <form id="accountForm" class="account-form">
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" id="accountNameInput" class="form-input" value="User Name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" id="accountEmailInput" class="form-input" value="user@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" id="accountPhoneInput" class="form-input" value="+91 9876543210">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Address</label>
+                            <input type="text" id="accountAddressInput" class="form-input" value="123 MG Road, Bangalore">
+                        </div>
+                        
+                        <div class="form-group-full">
+                            <label class="form-label">Change Password</label>
+                            <input type="password" id="accountPasswordInput" class="form-input" placeholder="Enter new password">
+                        </div>
+                        
+                        <div class="form-group-full">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" id="accountConfirmPasswordInput" class="form-input" placeholder="Confirm new password">
+                        </div>
+                        
+                        <div class="account-actions">
+                            <button type="button" class="account-btn cancel">Cancel</button>
+                            <button type="submit" class="account-btn save">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="bg-black text-gray-400 py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-motorcycle text-white"></i>
+                            </div>
+                            <h2 class="text-xl font-bold text-white">Vahan Bazar</h2>
+                        </div>
+                        <p class="text-gray-400">
+                            Buy and Sell Bikes in Seconds. The ultimate bike inventory management app for multi-shop vehicle dealerships.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><button onclick="showSection('vehicles')" class="text-gray-400 hover:text-white">New Vehicles</button></li>
+                            <li><button onclick="showSection('second-hand')" class="text-gray-400 hover:text-white">Second Hand</button></li>
+                            <li><button onclick="showSection('services')" class="text-gray-400 hover:text-white">Services</button></li>
+                            <li><button onclick="showSection('parts')" class="text-gray-400 hover:text-white">Parts</button></li>
+                            <li><button onclick="showSection('showrooms')" class="text-gray-400 hover:text-white">Showrooms</button></li>
+                            <li><button onclick="showSection('offers')" class="text-gray-400 hover:text-white">Offers</button></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-white">Popular Brands</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white">Hero</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Honda</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Bajaj</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">TVS</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Royal Enfield</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-white">Contact Us</h3>
+                        <address class="not-italic text-gray-400">
+                            <p>123 MG Road, Bangalore</p>
+                            <p>Karnataka, India - 560001</p>
+                            <p class="mt-2">Email: info@vahanbazar.app</p>
+                            <p>Phone: +91 9876543210</p>
+                        </address>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2023 Vahan Bazar. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Vehicle Detail Modal -->
+    <div id="vehicleDetailModal" class="vehicle-detail-modal" style="display: none;">
+        <div class="vehicle-detail-content">
+            <button class="close-detail" onclick="closeVehicleDetailModal()">&times;</button>
+            <img id="vehicleDetailImage" class="vehicle-detail-image" src="" alt="">
+            <h2 id="vehicleDetailTitle" class="vehicle-detail-title"></h2>
+            <p id="vehicleDetailBrand" class="vehicle-detail-brand"></p>
+            <p id="vehicleDetailPrice" class="vehicle-detail-price"></p>
+            
+            <div id="vehicleDetailSpecs" class="vehicle-detail-specs">
+                <!-- Specs will be inserted here -->
+            </div>
+            
+            <div class="vehicle-detail-features">
+                <h3 class="features-title">Key Features</h3>
+                <ul id="vehicleDetailFeaturesList" class="features-list">
+                    <!-- Features will be inserted here -->
+                </ul>
+            </div>
+            
+            <div class="vehicle-detail-actions">
+                <button onclick="addToCartFromDetail()" class="btn btn-warning">Add to Cart</button>
+                <button onclick="showTestRideFromDetail()" class="btn btn-success">Book Test Ride</button>
+                <button onclick="buyNowFromDetail()" class="btn btn-primary">Buy Now</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-100">My Cart</h3>
+                    <button onclick="closeCart()" class="text-gray-400 hover:text-gray-200">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div id="cartItems" class="space-y-4 mb-6">
+                    <!-- Cart items will be inserted here by JavaScript -->
+                </div>
+                
+                <div class="border-t border-gray-700 pt-4">
+                    <div class="flex justify-between mb-4">
+                        <span class="text-lg font-semibold text-gray-100">Total:</span>
+                        <span id="cartTotal" class="text-lg font-bold text-gray-100">₹0</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="clearCart()" class="btn btn-outline">Clear Cart</button>
+                        <button onclick="checkout()" class="btn btn-primary">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-100">Checkout</h3>
+                    <button onclick="closeCheckoutModal()" class="text-gray-400 hover:text-gray-200">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="checkout-steps">
+                    <div class="checkout-step active">
+                        <div class="step-icon">1</div>
+                        <div class="step-name">Cart</div>
+                    </div>
+                    <div class="checkout-step">
+                        <div class="step-icon">2</div>
+                        <div class="step-name">Details</div>
+                    </div>
+                    <div class="checkout-step">
+                        <div class="step-icon">3</div>
+                        <div class="step-name">Payment</div>
+                    </div>
+                    <div class="checkout-step">
+                        <div class="step-icon">4</div>
+                        <div class="step-name">Complete</div>
+                    </div>
+                </div>
+                
+                <div class="checkout-content">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2">
+                            <div id="checkoutForm">
+                                <div class="mb-6">
+                                    <h4 class="text-lg font-semibold text-gray-100 mb-4">Shipping Information</h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                                            <input type="text" id="checkoutName" class="form-input" placeholder="Enter your full name">
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+                                            <input type="tel" id="checkoutPhone" class="form-input" placeholder="Enter your phone number">
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                                            <input type="email" id="checkoutEmail" class="form-input" placeholder="Enter your email">
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-300 mb-1">Address</label>
+                                            <textarea id="checkoutAddress" rows="3" class="form-input" placeholder="Enter your address"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 class="text-lg font-semibold text-gray-100 mb-4">Payment Method</h4>
+                                    <div class="space-y-3">
+                                        <label class="flex items-center p-3 bg-gray-800 rounded-lg cursor-pointer">
+                                            <input type="radio" name="paymentMethod" value="credit" class="mr-3" checked>
+                                            <span class="text-gray-300">Credit Card</span>
+                                        </label>
+                                        
+                                        <label class="flex items-center p-3 bg-gray-800 rounded-lg cursor-pointer">
+                                            <input type="radio" name="paymentMethod" value="debit" class="mr-3">
+                                            <span class="text-gray-300">Debit Card</span>
+                                        </label>
+                                        
+                                        <label class="flex items-center p-3 bg-gray-800 rounded-lg cursor-pointer">
+                                            <input type="radio" name="paymentMethod" value="upi" class="mr-3">
+                                            <span class="text-gray-300">UPI</span>
+                                        </label>
+                                        
+                                        <label class="flex items-center p-3 bg-gray-800 rounded-lg cursor-pointer">
+                                            <input type="radio" name="paymentMethod" value="bajaj" class="mr-3">
+                                            <span class="text-gray-300">Bajaj Finserv EMI</span>
+                                        </label>
+                                        
+                                        <label class="flex items-center p-3 bg-gray-800 rounded-lg cursor-pointer">
+                                            <input type="radio" name="paymentMethod" value="cash" class="mr-3">
+                                            <span class="text-gray-300">Cash on Delivery</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div id="emiOptions" class="mb-6 hidden">
+                                    <h4 class="text-lg font-semibold text-gray-100 mb-4">EMI Details</h4>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-300 mb-1">Loan Tenure (months)</label>
+                                            <select id="checkoutLoanTenure" class="form-input">
+                                                <option value="6">6 months</option>
+                                                <option value="12">12 months</option>
+                                                <option value="18">18 months</option>
+                                                <option value="24">24 months</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-300 mb-1">Down Payment (₹)</label>
+                                            <input type="number" id="checkoutDownPayment" class="form-input" placeholder="Enter down payment">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="emiDetails" class="mb-6 hidden">
+                                    <h4 class="text-lg font-semibold text-gray-100 mb-4">EMI Calculation</h4>
+                                    <div class="bg-gray-800 p-4 rounded-lg">
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <p class="text-sm text-gray-400">Monthly EMI</p>
+                                                <p class="font-semibold text-gray-200">₹<span id="monthlyEMI">0</span></p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm text-gray-400">Total Interest</p>
+                                                <p class="font-semibold text-gray-200">₹<span id="totalEMIInterest">0</span></p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm text-gray-400">Total Amount</p>
+                                                <p class="font-semibold text-gray-200">₹<span id="totalEMIAmount">0</span></p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm text-gray-400">Payment Method</p>
+                                                <p class="font-semibold text-gray-200">Bajaj Finserv EMI</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="cashDetails" class="mb-6 hidden">
+                                    <h4 class="text-lg font-semibold text-gray-100 mb-4">Cash on Delivery Details</h4>
+                                    <div class="bg-yellow-900 p-4 rounded-lg">
+                                        <p class="text-yellow-200">15% advance payment required. If you cancel after delivery, 5% will be deducted and the rest will be refunded.</p>
+                                        <div class="mt-3">
+                                            <p class="text-sm text-yellow-200">Advance Payment: ₹<span id="advancePayment">0</span></p>
+                                            <p class="text-sm text-yellow-200">Remaining Amount: ₹<span id="remainingPayment">0</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 class="text-lg font-semibold text-gray-100 mb-4">Apply Coupon</h4>
+                                    <div class="coupon-input-container">
+                                        <input type="text" id="couponInput" class="coupon-input" placeholder="Enter coupon code">
+                                        <button class="apply-coupon-btn" onclick="applyCoupon()">Apply</button>
+                                    </div>
+                                    <div id="appliedCouponContainer" class="hidden">
+                                        <div class="applied-coupon">
+                                            <i class="fas fa-check-circle"></i>
+                                            Coupon Applied: <span id="appliedCouponCode"></span>
+                                            <button class="remove-coupon" onclick="removeCoupon()">×</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="order-summary">
+                                <h4 class="summary-title">Order Summary</h4>
+                                <div id="checkoutItems" class="space-y-3 mb-4">
+                                    <!-- Checkout items will be inserted here by JavaScript -->
+                                </div>
+                                
+                                <div class="space-y-2">
+                                    <div class="summary-item">
+                                        <span>Subtotal</span>
+                                        <span id="checkoutSubtotal">₹0</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span>Shipping</span>
+                                        <span id="checkoutShipping">₹0</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span>Tax</span>
+                                        <span id="checkoutTax">₹0</span>
+                                    </div>
+                                    <div class="summary-item" id="discountRow" style="display: none;">
+                                        <span>Discount</span>
+                                        <span id="checkoutDiscount">₹0</span>
+                                    </div>
+                                    <div class="summary-item total">
+                                        <span>Total</span>
+                                        <span id="checkoutTotal">₹0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="checkout-actions">
+                    <button onclick="previousCheckoutStep()" class="checkout-btn back">Back</button>
+                    <button onclick="nextCheckoutStep()" class="checkout-btn next">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test Ride Modal -->
+    <div id="testRideModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-md">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-100">Book a Test Ride</h3>
+                    <button onclick="closeTestRideModal()" class="text-gray-400 hover:text-gray-200">
+                        ✕
+                    </button>
+                </div>
+                
+                <form onsubmit="bookTestRide(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="testRideName" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+                            <input type="tel" id="testRidePhone" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="testRideEmail" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Preferred Date</label>
+                            <input type="date" id="testRideDate" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Payment Method</label>
+                            <select id="testRidePayment" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Payment Method</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="debit">Debit Card</option>
+                                <option value="upi">UPI</option>
+                                <option value="bajaj">Bajaj Finserv EMI</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" class="btn btn-primary btn-block">Book Test Ride</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sell Vehicle Modal -->
+    <div id="sellModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-md">
+            <div class="p-6 modal-scrollable-content">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-100">Sell Your Vehicle</h3>
+                    <button onclick="closeSellModal()" class="text-gray-400 hover:text-gray-200">
+                        ✕
+                    </button>
+                </div>
+                
+                <form onsubmit="sellVehicle(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="sellName" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+                            <input type="tel" id="sellPhone" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="sellEmail" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Vehicle Type</label>
+                            <select id="sellVehicleType" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Type</option>
+                                <option value="bike">Bike</option>
+                                <option value="scooter">Scooter</option>
+                                <option value="ev">Electric Vehicle</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Brand</label>
+                            <input type="text" id="sellBrand" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Model</label>
+                            <input type="text" id="sellModel" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Year</label>
+                            <input type="number" id="sellYear" min="1990" max="2023" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Expected Price (₹)</label>
+                            <input type="number" id="sellPrice" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Your Location</label>
+                            <div class="flex">
+                                <input type="text" id="sellLocation" required 
+                                    class="flex-grow px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100"
+                                    placeholder="Enter your location">
+                                <button type="button" onclick="getLocation('sellLocation')" class="gps-btn rounded-r-lg">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Payment Method</label>
+                            <select id="sellPayment" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Payment Method</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="debit">Debit Card</option>
+                                <option value="upi">UPI</option>
+                                <option value="bajaj">Bajaj Finserv EMI</option>
+                                <option value="cash">Cash on Delivery</option>
+                            </select>
+                            <div id="cashOnDeliveryNote_sell" class="hidden text-sm text-yellow-300 mt-2">
+                                15% advance payment required
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Vehicle Photos</label>
+                            <input type="file" id="sellPhotos" multiple accept="image/*" 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Additional Details</label>
+                            <textarea id="sellDetails" rows="3" 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" class="btn btn-success btn-block">Submit Details</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fuel Delivery Modal -->
+    <div id="fuelDeliveryModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-md">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-100">Order Fuel Delivery</h3>
+                    <button onclick="closeFuelDeliveryModal()" class="text-gray-400 hover:text-gray-200">
+                        ✕
+                    </button>
+                </div>
+                
+                <form onsubmit="orderFuel(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="fuelName" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+                            <input type="tel" id="fuelPhone" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Fuel Type</label>
+                            <select id="fuelType" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Fuel Type</option>
+                                <option value="petrol">Petrol</option>
+                                <option value="diesel">Diesel</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Quantity (Liters)</label>
+                            <input type="number" id="fuelQuantity" min="1" max="10" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Delivery Location</label>
+                            <div class="flex">
+                                <input type="text" id="fuelLocation" required 
+                                    class="flex-grow px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100"
+                                    placeholder="Enter your location">
+                                <button type="button" onclick="getLocation('fuelLocation')" class="gps-btn rounded-r-lg">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Payment Method</label>
+                            <select id="fuelPayment" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Payment Method</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="debit">Debit Card</option>
+                                <option value="upi">UPI</option>
+                                <option value="cash">Cash on Delivery</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mechanic Service Modal -->
+    <div id="mechanicServiceModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-md">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-100">Book Mechanic Service</h3>
+                    <button onclick="closeMechanicServiceModal()" class="text-gray-400 hover:text-gray-200">
+                        ✕
+                    </button>
+                </div>
+                
+                <form onsubmit="bookMechanic(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="mechanicName" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+                            <input type="tel" id="mechanicPhone" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Service Type</label>
+                            <select id="mechanicServiceType" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Service Type</option>
+                                <option value="puncture">Puncture Repair</option>
+                                <option value="general">General Service</option>
+                                <option value="oil">Oil Change</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Vehicle Details</label>
+                            <input type="text" id="mechanicVehicle" placeholder="Brand, Model, Year" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Service Location</label>
+                            <div class="flex">
+                                <input type="text" id="mechanicLocation" required 
+                                    class="flex-grow px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100"
+                                    placeholder="Enter your location">
+                                <button type="button" onclick="getLocation('mechanicLocation')" class="gps-btn rounded-r-lg">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Preferred Date & Time</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="date" id="mechanicDate" required 
+                                    class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <input type="time" id="mechanicTime" required 
+                                    class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Payment Method</label>
+                            <select id="mechanicPayment" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Payment Method</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="debit">Debit Card</option>
+                                <option value="upi">UPI</option>
+                                <option value="cash">Cash</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" class="btn btn-success btn-block">Book Service</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Second Hand Sell Modal -->
+    <div id="secondHandSellModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-md">
+            <div class="p-6 modal-scrollable-content">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-100">Sell Your Used Bike</h3>
+                    <button onclick="closeSecondHandSellModal()" class="text-gray-400 hover:text-gray-200">
+                        ✕
+                    </button>
+                </div>
+                
+                <form onsubmit="sellSecondHand(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
+                            <input type="text" id="secondHandName" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+                            <input type="tel" id="secondHandPhone" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="secondHandEmail" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Vehicle Type</label>
+                            <select id="secondHandVehicleType" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Type</option>
+                                <option value="bike">Bike</option>
+                                <option value="scooter">Scooter</option>
+                                <option value="ev">Electric Vehicle</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Brand</label>
+                            <input type="text" id="secondHandBrand" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Model</label>
+                            <input type="text" id="secondHandModel" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Year of Purchase</label>
+                            <input type="number" id="secondHandYear" min="1990" max="2023" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Kilometers Driven</label>
+                            <input type="number" id="secondHandKms" min="0" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Expected Price (₹)</label>
+                            <input type="number" id="secondHandPrice" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Your Location</label>
+                            <div class="flex">
+                                <input type="text" id="secondHandLocation" required 
+                                    class="flex-grow px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100"
+                                    placeholder="Enter your location">
+                                <button type="button" onclick="getLocation('secondHandLocation')" class="gps-btn rounded-r-lg">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Payment Method</label>
+                            <select id="secondHandPayment" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Payment Method</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="debit">Debit Card</option>
+                                <option value="upi">UPI</option>
+                                <option value="bajaj">Bajaj Finserv EMI</option>
+                                <option value="cash">Cash on Delivery</option>
+                            </select>
+                            <div id="cashOnDeliveryNote_secondHand" class="hidden text-sm text-yellow-300 mt-2">
+                                15% advance payment required
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Vehicle Photos</label>
+                            <input type="file" id="secondHandPhotos" multiple accept="image/*" 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Additional Details</label>
+                            <textarea id="secondHandDetails" rows="3" 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" class="btn btn-success btn-block">Submit Details</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Parts Sell Modal -->
+    <div id="partsSellModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-md">
+            <div class="p-6 modal-scrollable-content">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-100">Sell Bike Parts</h3>
+                    <button onclick="closePartsSellModal()" class="text-gray-400 hover:text-gray-200">
+                        ✕
+                    </button>
+                </div>
+                
+                <form onsubmit="sellParts(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
+                            <input type="text" id="partsName" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+                            <input type="tel" id="partsPhone" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="partsEmail" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Part Category</label>
+                            <select id="partsCategory" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Category</option>
+                                <option value="engine">Engine Parts</option>
+                                <option value="brake">Brake System</option>
+                                <option value="electrical">Electrical</option>
+                                <option value="suspension">Suspension</option>
+                                <option value="tyres">Tyres & Tubes</option>
+                                <option value="accessories">Accessories</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Part Name</label>
+                            <input type="text" id="partsPartName" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Compatible Brands</label>
+                            <input type="text" id="partsBrands" placeholder="e.g., Honda, Hero, Bajaj" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Condition</label>
+                            <select id="partsCondition" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Condition</option>
+                                <option value="new">New</option>
+                                <option value="like-new">Like New</option>
+                                <option value="used">Used</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Price (₹)</label>
+                            <input type="number" id="partsPrice" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Your Location</label>
+                            <div class="flex">
+                                <input type="text" id="partsLocation" required 
+                                    class="flex-grow px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100"
+                                    placeholder="Enter your location">
+                                <button type="button" onclick="getLocation('partsLocation')" class="gps-btn rounded-r-lg">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Payment Method</label>
+                            <select id="partsPayment" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Payment Method</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="debit">Debit Card</option>
+                                <option value="upi">UPI</option>
+                                <option value="bajaj">Bajaj Finserv EMI</option>
+                                <option value="cash">Cash on Delivery</option>
+                            </select>
+                            <div id="cashOnDeliveryNote_parts" class="hidden text-sm text-yellow-300 mt-2">
+                                15% advance payment required
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Part Photos</label>
+                            <input type="file" id="partsPhotos" multiple accept="image/*" 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Additional Details</label>
+                            <textarea id="partsDetails" rows="3" 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" class="btn btn-purple btn-block">Submit Details</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-lg max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-100">Complete Your Purchase</h3>
+                    <button onclick="closePurchaseModal()" class="text-gray-400 hover:text-gray-200">
+                        ✕
+                    </button>
+                </div>
+                
+                <div id="purchaseDetails" class="mb-6">
+                    <!-- Purchase details will be inserted here by JavaScript -->
+                </div>
+                
+                <form onsubmit="completePurchase(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
+                            <input type="text" id="buyerName" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+                            <input type="tel" id="buyerPhone" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="buyerEmail" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Delivery Address</label>
+                            <div class="flex">
+                                <textarea id="buyerAddress" rows="2" required 
+                                    class="flex-grow px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100"
+                                    placeholder="Enter your delivery address"></textarea>
+                                <button type="button" onclick="getLocation('buyerAddress')" class="gps-btn rounded-r-lg self-start">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Payment Method</label>
+                            <select id="buyerPayment" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Payment Method</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="debit">Debit Card</option>
+                                <option value="upi">UPI</option>
+                                <option value="bajaj">Bajaj Finserv EMI</option>
+                                <option value="cash">Cash on Delivery</option>
+                            </select>
+                            <div id="cashOnDeliveryNote_buyer" class="hidden text-sm text-yellow-300 mt-2">
+                                15% advance payment required
+                            </div>
+                        </div>
+                        
+                        <div id="emiOptions" class="hidden space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1">Loan Tenure (months)</label>
+                                <select id="buyerLoanTenure" 
+                                    class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                    <option value="6">6 months</option>
+                                    <option value="12">12 months</option>
+                                    <option value="18">18 months</option>
+                                    <option value="24">24 months</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1">Down Payment (₹)</label>
+                                <input type="number" id="buyerDownPayment" min="0" 
+                                    class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" class="btn btn-success btn-block">Complete Purchase</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Return/Replacement Modal -->
+    <div id="returnModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-md">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-100">Return or Replacement</h3>
+                    <button onclick="closeReturnModal()" class="text-gray-400 hover:text-gray-200">
+                        ✕
+                    </button>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="bg-yellow-900 border-l-4 border-yellow-500 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-yellow-500"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-200">
+                                    You can return or replace your new bike within 30 days of purchase. The bike must be in unused condition with all original packaging and accessories.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="bg-blue-900 p-4 rounded-lg">
+                            <h4 class="font-medium text-blue-300">Return Policy</h4>
+                            <ul class="mt-2 text-sm text-blue-200 list-disc pl-5 space-y-1">
+                                <li>Full refund within 7 days</li>
+                                <li>10% restocking fee after 7 days</li>
+                                <li>Customer pays return shipping</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-900 p-4 rounded-lg">
+                            <h4 class="font-medium text-green-300">Replacement Policy</h4>
+                            <ul class="mt-2 text-sm text-green-200 list-disc pl-5 space-y-1">
+                                <li>Free replacement within 15 days</li>
+                                <li>Same model or equivalent value</li>
+                                <li>One-time replacement only</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <form onsubmit="processReturn(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Order Number</label>
+                            <input type="text" id="returnOrderNumber" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Return/Replacement Type</label>
+                            <select id="returnType" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Type</option>
+                                <option value="return">Return</option>
+                                <option value="replacement">Replacement</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Reason</label>
+                            <select id="returnReason" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Reason</option>
+                                <option value="not-satisfied">Not Satisfied</option>
+                                <option value="defective">Defective Product</option>
+                                <option value="wrong-item">Wrong Item Delivered</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Additional Details</label>
+                            <textarea id="returnDetails" rows="3" 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" class="btn btn-info btn-block">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PPF Form Modal -->
+    <div id="ppfModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg w-full max-w-md">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-100">PPF Investment</h3>
+                    <button onclick="closePPFModal()" class="text-gray-400 hover:text-gray-200">
+                        ✕
+                    </button>
+                </div>
+                
+                <form onsubmit="investPPF(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                            <input type="text" id="ppfName" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+                            <input type="tel" id="ppfPhone" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="ppfEmail" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Investment Amount (₹)</label>
+                            <input type="number" id="ppfAmount" min="500" max="150000" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Payment Method</label>
+                            <select id="ppfPayment" required 
+                                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                                <option value="">Select Payment Method</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="debit">Debit Card</option>
+                                <option value="upi">UPI</option>
+                                <option value="netbanking">Net Banking</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" class="btn btn-primary btn-block">Invest Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div id="chatbotButton" class="bg-red-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg cursor-pointer hover:bg-red-700 transition" onclick="toggleChatbot()">
+            <i class="fas fa-comments text-xl"></i>
+        </div>
+        
+        <div id="chatbotWindow" class="hidden bg-gray-900 rounded-lg shadow-xl w-80 h-96 flex flex-col">
+            <div class="bg-red-600 text-white p-4 rounded-t-lg flex justify-between items-center">
+                <h3 class="font-bold">Vahan Bazar Assistant</h3>
+                <button onclick="toggleChatbot()" class="text-white hover:text-gray-200">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="chatbotMessages" class="chatbot-messages p-4 flex-grow overflow-y-auto">
+                <div class="chatbot-message bot-message">
+                    Hello! I'm the Vahan Bazar assistant. How can I help you today?
+                </div>
+            </div>
+            
+            <div class="p-4 border-t border-gray-700">
+                <form onsubmit="sendChatMessage(event)" class="flex">
+                    <input type="text" id="chatInput" placeholder="Type your message..." 
+                        class="flex-grow px-3 py-2 bg-gray-800 border border-gray-700 rounded-l-md focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-100">
+                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-r-md hover:bg-red-700 transition">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
